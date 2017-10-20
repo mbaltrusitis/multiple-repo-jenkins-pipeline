@@ -9,7 +9,6 @@ pipeline {
             checkout resolveScm(source: git('https://github.com/requests/requests.git'), targets: [BRANCH_NAME, 'master'])
           }
         }
-        sh 'echo "Great success!"'
       }
     }
   }
