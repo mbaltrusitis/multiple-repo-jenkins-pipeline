@@ -15,7 +15,7 @@ pipeline {
       steps {
         dir('deps') {
           dir('python-pelican') {
-            git('https://github.com/getpelican/pelican.git', branch: 'master')
+            git(url: 'https://github.com/getpelican/pelican.git', branch: 'master')
           }
         }
         sh 'echo "GREAT SUCCESS"'
