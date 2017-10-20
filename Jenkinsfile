@@ -6,7 +6,7 @@ pipeline {
         sh 'mkdir -p deps/python-requests deps/python-pelican'
         dir('deps') {
           dir('python-requests') {
-            checkout resolveScm(source: git('https://github.com/requests/requests.git'), targets: [BRANCH_NAME, 'master'])
+            git(url: 'https://github.com/requests/requests.git', branch: 'master')
           }
         }
       }
@@ -15,10 +15,10 @@ pipeline {
       steps {
         dir('deps') {
           dir('python-pelican') {
-            checkout resolveScm(source: git('https://github.com/getpelican/pelican.git'), targets: [BRANCH_NAME, 'master'])
+            git('https://github.com/getpelican/pelican.git', branch: 'master')
           }
         }
-        echo "GREAT SUCCESS!"
+        sh 'echo "GREAT SUCCESS"'
       }
     }
   }
